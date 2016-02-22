@@ -1,0 +1,116 @@
+\documentclass[a4paper,12pt,twoside,openright]{article}
+
+
+\addtolength{\textheight}{80pt}
+\addtolength{\voffset}{-40pt}
+\setlength{\textwidth}{160mm}\setlength{\oddsidemargin}{-0mm}\setlength{\evensidemargin}{-0mm}
+
+\usepackage{float}
+\usepackage{amsmath,amssymb,graphicx,textcomp,varioref,afterpage,listings,subcap
+tion}
+\usepackage{hyperref}
+\usepackage{algpseudocode,algorithmicx,algorithm,fancyvrb}
+%\usepackage[top=3cm, bottom=3cm, left=3cm, right=3cm]{geometry}
+\usepackage[latin1]{inputenc}
+\usepackage{natbib}
+\raggedbottom
+
+
+\newcommand{\e}[1]{\cdot 10^{#1}}
+\newcommand{\h}{\hbar}
+\newcommand{\der}[2]{\frac{\partial #1}{\partial #2}}
+\newcommand{\dder}[2]{\frac{\partial^2 #1}{\partial #2^2}}
+\newcommand{\op}[1]{\hat{#1}}
+\newcommand{\m}[1]{\langle #1\rangle}
+\newcommand{\bra}[1]{\langle #1 |}
+\newcommand{\ket}[1]{\left| #1\right\rangle}
+\newcommand{\inn}[2]{\langle #1 | #2 \rangle}
+\newcommand{\pk}{\psi(x,y,x)}
+\newcommand{\ps}{\psi(r,\phi, \theta)}
+\newcommand{\up}{\uparrow}
+\newcommand{\down}{\downarrow}
+\newcommand{\Fig}[1]{Figure \ref{#1}}
+\newcommand{\fig}[1]{figure \ref{#1}}
+\newcommand{\tab}[1]{table \ref{#1}}
+\newcommand{\eq}[1]{equation \ref{#1}}
+\newcommand{\Eq}[1]{Equation \ref{#1}}
+\newcommand{\alg}[1]{algorithm \ref{#1}}
+\newcommand{\Alg}[1]{Algorithm \ref{#1}}
+\newcommand{\chp}[1]{chapter  \ref{#1}}
+\newcommand{\Chp}[1]{Chapter  \ref{#1}}
+\newcommand{\Hh}{{\cal H}}
+\newcommand{\un}[1]{\;\text{#1}}
+\newcommand{\mn}{{\mu\nu}}
+
+
+
+%opening
+\title{Halo finding in Modified Gravity N-body simulations}
+%The implementation of MORPH, a modified gravity adjusted phase space based halo finder}
+
+\author{Simen Tenn\o e}
+\title{INF4350 Spring 2016 - Partial exam 1}
+
+\begin{document}
+\maketitle
+
+\section{Database searches}
+
+\subsection*{a)}
+The sequence is: alpha-ketoglutarate-dependent dioxygenase alkB homolog 2 isoform 1 [Gallus gallus]
+
+\VerbatimInput{NP_001264426.fasta}
+
+\subsection*{b)}
+The variant of BLAST to use is Standard Protein BLAST (blastp) as this is a protein.
+
+\subsection*{c)}
+
+I get 8 hits with Excpect value $(E) < 1$.
+
+\subsection*{d)}
+
+The accession number of the best match
+with a human sequence is: Q6NS38.1
+
+\VerbatimInput{Q6NS38.1.fasta}
+
+\subsection*{e)}
+\begin{verbatim}
+Query  1    MDRFVVKRS--------------AEEP---GGDG----KKPRLEEEAGGLPHPSQPS-QE  38
+            MDRF+VK +               EEP   GGD     K+PR E    G  H + PS +
+Sbjct  1    MDRFLVKGAQGGLLRKQEEQEPTGEEPAVLGGDKESTRKRPRREAPGNG-GHSAGPSWRH  59
+
+Query  39   IRAQGLSLEYRLLFGRAEADAIFQQLEKEVEYFEGEQTKLHVFGKWHNIPRKQVTYGDPE  98
+            IRA+GL   Y +LFG+AEAD IFQ+LEKEVEYF G   ++ VFGKWH++PRKQ TYGD
+Sbjct  60   IRAEGLDCSYTVLFGKAEADEIFQELEKEVEYFTGALARVQVFGKWHSVPRKQATYGDAG  119
+
+Query  99   LTYTYSGVTFSPKPWIPVLNHIRDRLVLETGHTFNFVLINRYKDGEDHIGEHRDDEKELV  158
+            LTYT+SG+T SPKPWIPVL  IRD +   TG TFNFVLINRYKDG DHIGEHRDDE+EL
+Sbjct  120  LTYTFSGLTLSPKPWIPVLERIRDHVSGVTGQTFNFVLINRYKDGCDHIGEHRDDERELA  179
+
+Query  159  PRSPIASVSFGACRDFVFRHCDSRGKNATRHIKPIRLQLAHGSLLMMKYPTNVYWYHSLP  218
+            P SPIASVSFGACRDFVFRH DSRGK+ +R +  +RL LAHGSLLMM +PTN +WYHSLP
+Sbjct  180  PGSPIASVSFGACRDFVFRHKDSRGKSPSRRVAVVRLPLAHGSLLMMNHPTNTHWYHSLP  239
+
+Query  219  IRRRVLAPRINLTFRKMMAVDK  240
+            +R++VLAPR+NLTFRK++   K
+Sbjct  240  VRKKVLAPRVNLTFRKILLTKK  261
+\end{verbatim}
+
+\subsection*{f)}
+\begin{description}
+\item[Score] 319
+\item[Bitscore] 817
+\item[E-value] 5e-108
+\end{description}
+
+\section{Alignments}
+\subsection*{a)}
+\subsection*{b)}
+\subsection*{c)}
+\subsection*{d)}
+\subsection*{e)}
+
+
+\end{document}
