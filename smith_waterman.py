@@ -45,29 +45,32 @@ def smithWatherman(sequence1, sequence2, scoring_matrix_file, W, k=None):
     m = len(sequence1)
     n = len(sequence2)
 
-    H = np.zeros((m + 1, n + 1))
+    H = np.zeros((n + 1, m + 1))
+    trace = np.zeros((n + 1, m + 1))
 
     for i in xrange(1, m + 1):
         for j in xrange(1, n + 1):
             # print "-------------------------"
             # diagonal_score = H[i-1, j-1] + scoring_matrix[sequence1[i - 1]][sequence2[j - 1]]
-            diagonal_score = H[i-1, j-1] + test_similarity(sequence1[i - 1], sequence2[j - 1])
+            diagonal_score = H[j-1, i-1] + test_similarity(sequence1[i - 1], sequence2[j - 1])
 
             if k is None:
                 k = np.arange(1, i + 1)
-            left_score = (H[i - k, j] + W(k)).max()
+            left_score = (H[j, i - k] + W(k)).max()
 
             if k is None:
                 k = np.arange(1, j + 1)
-            up_score = (H[i, j - k] + W(k)).max()
+            up_score = (H[j - k, i] + W(k)).max()
 
             # print sequence1[i - 1], sequence2[j - 1]
             # print diagonal_score, left_score, up_score
 
-            H[i, j] = max(0, diagonal_score, up_score, left_score)
+            H[j, i] = max(0, diagonal_score, up_score, left_score)
+            trace[j, i] = np.argmax([0, diagonal_score, up_score, left_score])
+
             # print H[i, j]
         # sys.exit(0)
-    return H.T
+    return H, trace
 
 
 def traceback(sequence1, sequence2, H):
@@ -76,10 +79,12 @@ def traceback(sequence1, sequence2, H):
     aligned_sequence1 = ""
     aligned_sequence2 = ""
 
+    end, diag, up, left = range(4)
+
     print x, y, H[x, y]
 
 
-def trace(x, y, H, sequence1, sequence2, aligned_sequence1, aligned_sequence2):
+def trace(x, y, H, trace, sequence1, sequence2, aligned_sequence1, aligned_sequence2):
 
         if H[x - 1, y - 1] >= max(H[x - 1, x], H[x, y - 1]):
             x -= 1
@@ -115,5 +120,7 @@ if __name__ == "__main__":
     def test_W(length):
         return -1
 
-    H = smithWatherman(sequence1, sequence2, scoring_matrix_file, test_W, k=1)
+    H, trace = smithWatherman(sequence1, sequence2, scoring_matrix_file, test_W, k=1)
+    print H
+    print trace
     traceback(sequence1, sequence2, H)
